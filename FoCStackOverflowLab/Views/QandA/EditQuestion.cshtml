@@ -1,0 +1,42 @@
+﻿@model Questions
+
+@{
+    ViewData["Title"] = "EditQuestion";
+}
+
+<h1>EditQuestion</h1>
+<form method="post" action="/QandA/savequestion">
+    <input type="hidden" name="qid" value="@Model.qid" />
+    <input type="hidden" name="username" value="@DAL.CurrentUser" />
+    <input type="hidden" name="posted" value="@System.DateTime.Now" />
+    Title of Question:
+    <br />
+    <input type="text" name="title" size="25" value="@Model.title" />
+    <br />
+    Details:
+    <br />
+<textarea id="detail" name="detail" rows="10" cols="50" value="@Model.detail">Write the details of your question here</textarea>
+    <br />
+    Category:
+    <br />
+    <input list="Categories" name="category" value="@Model.category" />
+    <datalist id="Categories">
+        <option value="C#">C#</option>
+        <option value="JSCR">Javascript</option>
+        <option value="ANGU">Angular</option>
+        <option value="MVC">MVC</option>
+        <option value="DAPR">Dapper</option>
+        <option value="MSQL">MySQL</option>
+    </datalist>
+    <br />
+    <input list="Tags" name="tags" value="@Model.tags" />
+    <datalist id="Tags">
+        <option value="Programming">Programming</option>
+        <option value="Debugging">Debugging</option>
+        <option value="Syntax">Syntax</option>
+        <option value="Offtopic">Offtopic</option>
+        <option value="Linux">Linux</option>
+        <option value="Windows">Windows</option>
+    </datalist>
+    <input type="submit" value="Save" />
+</form>

@@ -1,0 +1,26 @@
+﻿@model QuestionsAndAnswers
+@{
+    ViewData["Title"] = "ViewAnswer";
+}
+
+<h1>View Answer to @Model.quest.title</h1>
+@foreach (Answer ans in Model.answe)
+{
+    
+<div>
+    @ans.aid Submitted by: @ans.username<br />
+    <hr />
+    Question
+    <br />
+    @Model.quest.detail <br />
+    <hr />
+    Answer
+    <br />
+    @ans.detail<br />
+    <hr />
+    @ans.posted<br />
+    <hr />
+    @ans.upvotes
+</div>
+
+}

@@ -1,0 +1,19 @@
+﻿ @model QuestionsAndAnswer 
+@{
+    ViewData["Title"] = "NewAnswer";
+}
+
+<h1>Submit Answer</h1>
+
+<form method="post" action="/QandA/AddAnswer">
+    
+    <input type="hidden" name="username" value="@DAL.CurrentUser" />
+    <input type="hidden" name="posted" value="@System.DateTime.Now" />
+    Answer:
+    <br />
+    <textarea id="detail" name="detail" rows="10" cols="50">Write your answer here!</textarea>
+    <br />
+    <input type="submit" value="Save" />
+
+</form>
+

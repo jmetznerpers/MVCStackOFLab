@@ -1,0 +1,33 @@
+﻿create database qlstackoverflow;
+
+use qlstackoverflow;
+
+create table questions(
+qid int not null auto_increment,
+username varchar(25) not null,
+title varchar (25) not null,
+detail varchar (500) not null,
+posted datetime not null,
+category varchar(4) not null,
+tags varchar(200),
+status int not null,
+primary key (qid)
+);
+
+create table answers(
+aid int not null auto_increment,
+username varchar(25) not null,
+detail varchar(500) not null,
+questionid int not null,
+posted datetime not null,
+upvotes int,
+primary key (aid),
+foreign key(questionid) references questions(qid)
+
+);
+
+insert into questions (username, title, detail, posted, category, tags, status)
+values ('testname','testtitle','testdetail','9999-12-31 23:59:59','CAT1','testtags',0);
+
+insert into answers(username, detail, questionid, posted, upvotes)
+values('testname','testdetail',1,'9999-12-31 23:59:59',0);

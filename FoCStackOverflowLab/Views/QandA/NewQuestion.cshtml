@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "NewQuestion";
+}
+
+<h1>Ask a Question!</h1>
+
+<form method="post" action="/QandA/AddQuestion">
+    <input type="hidden" name="username" value="@DAL.CurrentUser" />
+    <input type="hidden" name="posted" value="@System.DateTime.Now" />
+    Title of Question:
+    <br />
+    <input type="text" name="title" size="25" /><br />
+    Details:
+    <br />
+    <textarea id="detail" name="detail" rows="10" cols="50">Write the details of your question here</textarea>
+    <br />
+    Category:
+    <br />
+    <input list="Categories" name="category" />
+    <datalist id="Categories">
+        <option value="C#">C#</option>
+        <option value="JSCR">Javascript</option>
+        <option value="ANGU">Angular</option>
+        <option value="MVC">MVC</option>
+        <option value="DAPR">Dapper</option>
+        <option value="MSQL">MySQL</option>
+    </datalist>
+    <br />
+    <input type="submit" value="Save" />
+
+</form>
+

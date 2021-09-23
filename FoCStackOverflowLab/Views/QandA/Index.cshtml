@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<body style="text-align:center; background-color:cornsilk">
+    <h1>Questions and Answers</h1>
+    <hr style="border-width:thick" />
+    <br /><br />
+    <h2>Welcome to the fantabulous FoC Stack Overflow knockoff created by your's truly!</h2>
+    <br /><br />
+    <hr style="border-width:thick" />
+    <h3>To see all of the questions currently in the list Click on Questions</h3>
+    <br />
+    <a asp-action="ViewQuestions" class="btn btn-primary">Questions</a>
+    <br />
+    <br />
+    <br />
+    <hr style="border-width:thick" />
+    @if (DAL.CurrentUser != null)
+    {
+        <h3>To Submit a new question please click below!</h3>
+        <br />
+        <a asp-action="NewQuestion" class="btn btn-primary">New Question!</a>
+    }
+    @if (DAL.CurrentUser == null)
+    {
+        <!--User is not logged in-->
+        <div>Please login at the top of the page!</div>
+    }
+</body>
+
+

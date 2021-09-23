@@ -1,0 +1,33 @@
+﻿@model Questions
+@{
+    ViewData["Title"] = "ViewQuestion";
+}
+
+<h1>View Question</h1>
+
+<div>
+    <h2>Submitted by: @Model.username Title: @Model.title<br /></h2>
+    <hr />
+    Details: @Model.detail<br />
+    <hr />
+    Posted: @Model.posted<br />
+    <hr />
+    @Model.category <br />
+    @Model.tags <br />
+    @Model.status<br />
+    @if (DAL.CurrentUser == @Model.username)
+    {
+        <a href="/QandA/EditQuestion?questid=@Model.qid" class="btn btn-danger">Edit Question</a>
+    }
+            else
+            {
+                <span>Login to edit!</span>
+            }
+    </div>
+
+    <td><a asp-action="ViewAnswer" asp-route-questid="@Model.qid">View Answer</a></td> 
+<br/>
+    @if (DAL.CurrentUser != null)
+    {
+    <td><a asp-action="NewAnswer" asp-route-questid="@Model.qid">Submit an Answer!</a></td>
+    }
