@@ -16,6 +16,12 @@
     <br />
     <br />
     <hr style="border-width:thick" />
+    <h3>To Search existing questions please click below!</h3>
+    <form method="get" action="/QandA/Search">
+        Search: <input type="text" name="_search" />
+        <input type ="submit" value="Search" />
+    </form>
+    <hr style="border-width:thick" />
     @if (DAL.CurrentUser != null)
     {
         <h3>To Submit a new question please click below!</h3>

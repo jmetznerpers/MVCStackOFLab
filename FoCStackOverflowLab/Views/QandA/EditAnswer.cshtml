@@ -1,11 +1,11 @@
 ﻿
 @{
-    ViewData["Title"] = "NewAnswer";
+    ViewData["Title"] = "EditAnswer";
 }
 
-<h1>Submit Answer</h1>
+<h1>EditAnswer</h1>
 
-<form method="post" action="/QandA/AddAnswer">
+<form method="post" action="/QandA/saveanswer">
     <input type="hidden" name="questionid" value="@ViewData["questId"]" />
     <input type="hidden" name="username" value="@DAL.CurrentUser" />
     <input type="hidden" name="posted" value="@System.DateTime.Now" />
@@ -16,4 +16,3 @@
     <input type="submit" value="Save" />
 
 </form>
-

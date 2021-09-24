@@ -128,3 +128,5 @@ C:\Repos\FoCStackOverflowLab\FoCStackOverflowLab\obj\Debug\netcoreapp3.1\Razor\V
 C:\Repos\FoCStackOverflowLab\FoCStackOverflowLab\obj\Debug\netcoreapp3.1\Razor\Views\QandA\ViewAnswer.cshtml.g.cs
 C:\Repos\FoCStackOverflowLab\FoCStackOverflowLab\obj\Debug\netcoreapp3.1\Razor\Views\QandA\NewAnswer.cshtml.g.cs
 C:\Repos\FoCStackOverflowLab\FoCStackOverflowLab\obj\Debug\netcoreapp3.1\FoCStackOverflowLab.csproj.AssemblyReference.cache
+C:\Repos\FoCStackOverflowLab\FoCStackOverflowLab\obj\Debug\netcoreapp3.1\Razor\Views\QandA\Search.cshtml.g.cs
+C:\Repos\FoCStackOverflowLab\FoCStackOverflowLab\obj\Debug\netcoreapp3.1\Razor\Views\QandA\EditAnswer.cshtml.g.cs

@@ -21,9 +21,10 @@ namespace FoCStackOverflowLab.Models
             DB.Insert<Questions>(newQuestion);
         }
 
-        public static void InsertAnswer(int qaid)
+        public static void InsertAnswer(Answer newAnswer)
         {
-            Answer newAnswer = GetQuestionsAndAnswer(qaid)._answe;
+            //QuestionsAndAnswer newQA = GetQuestionsAndAnswer(qaid);
+            //Answer newAnswer = newQA._answe;
             DB.Insert<Answer>(newAnswer);
         }
         //read
@@ -87,6 +88,14 @@ namespace FoCStackOverflowLab.Models
         {
             Answer answe = new Answer() { aid = id };
             DB.Delete<Answer>(answe);
+        }
+
+        public static List<Questions> SearchQuestions(string _search)
+        {
+            var keyvaluepair = new { search = $"{_search}%" };
+            string sql = "select * from questions where title like @search or detail like @search or category like @search";
+            return DB.Query<Questions>(sql, keyvaluepair).ToList();
+
         }
     }
 }

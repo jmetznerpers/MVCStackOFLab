@@ -51,15 +51,32 @@ namespace FoCStackOverflowLab.Controllers
             QuestionsAndAnswers qAns = DAL.GetQuestionsAndAnswers(questid);
             return View(qAns);
         }
-        public IActionResult NewAnswer()
+        public IActionResult NewAnswer(int questid)
         {
+            ViewData["questid"] = questid;
             return View();
         }
-        public IActionResult AddAnswer(QuestionsAndAnswer qanse)
+        public IActionResult AddAnswer(Answer ans)
         {
-            int qid = qanse._quest.qid;
-            DAL.InsertAnswer(qid);
-            return Redirect("/QandA/ViewAnswer");
+            DAL.InsertAnswer(ans);
+            return Redirect($"/QandA/ViewAnswer?questid={ans.questionid}");
+        }
+
+        public IActionResult Search(string _search)
+        {
+            List<Questions> quests = DAL.SearchQuestions(_search);
+            return View(quests);
+        }
+
+        public IActionResult EditAnswer(int questid)
+        {
+            Answer answe = DAL.GetAnswer(questid);
+            return View(answe);
+        }
+        public IActionResult saveanswer(Answer answe)
+        {
+            DAL.UpdateAnswer(answe);
+            return View($"QandA/ViewAnswer?questid{answe.questionid}");
         }
     }
 }
